@@ -4,7 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="ruhi.css">
+    <style>
+        /* Base styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Styling the container */
+        .imgage {
+            column-count: 4;
+            /* Number of columns */
+            padding: 20px;
+            /* Inner space */
+            column-gap: 20px;
+            /* Space between columns */
+            max-width: 1200px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Styling the images */
+        .imgage>img {
+            width: 100%;
+            /* Ensures image fits its column width */
+            border-radius: 8px;
+            /* Rounds the corners */
+            margin-bottom: 15px;
+            /* Space below each image */
+            transition: all 0.3s ease;
+            /* Smooth animation effect */
+        }
+
+        /* Hover effect for images */
+        .imgage>img:hover {
+            transform: scale(1.02);
+            /* Slight enlargement */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            /* Subtle shadow */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .imgage {
+                column-count: 3;
+                /* 3 columns on medium screens */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .imgage {
+                column-count: 3;
+                /* 2 columns on small screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .imgage {
+                column-count: 2;
+                /* 1 column on extra small screens */
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="imgage">
