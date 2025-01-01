@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FAD961;
+            background-image: linear-gradient(90deg, #FAD961 0%, #F76B1C 100%);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .quiz-container {
+            width: 400px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .quiz-header {
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .question {
+            margin: 10px 0;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .options button {
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .options button:hover {
+            background-color: #0056b3;
+        }
+
+        .btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #218838;
+        }
+
+        .result {
+            font-size: 1.2rem;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="quiz-container">
+        <div class="quiz-header">
+            <h2>Quiz Application</h2>
+            <p id="question" class="question">Question text here...</p>
+        </div>
+        <div class="options" id="options">
+            <!-- Options will be added dynamically here -->
+        </div>
+        <button class="btn" id="nextButton" disabled>Next</button>
+        <p class="result" id="result"></p>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "What is the capital of France?",
+                options: ["Berlin", "Madrid", "Paris", "Rome"],
+                answer: 2
+            },
+            {
+                question: "Who wrote 'Hamlet'?",
+                options: ["Charles Dickens", "J.K. Rowling", "William Shakespeare", "Mark Twain"],
+                answer: 2
+            },
+            {
+                question: "What is the largest planet in the Solar System?",
+                options: ["Earth", "Jupiter", "Mars", "Venus"],
+                answer: 1
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        const questionElement = document.getElementById('question');
+        const optionsContainer = document.getElementById('options');
+        const nextButton = document.getElementById('nextButton');
+        const resultElement = document.getElementById('result');
+
+        function loadQuestion() {
+            const currentQuestion = questions[currentQuestionIndex];
+            questionElement.textContent = currentQuestion.question;
+            optionsContainer.innerHTML = '';
+
+            currentQuestion.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.textContent = option;
+                button.addEventListener('click', () => handleOptionClick(index));
+                optionsContainer.appendChild(button);
+            });
+
+            nextButton.disabled = true;
+        }
+
+        function handleOptionClick(selectedIndex) {
+            const currentQuestion = questions[currentQuestionIndex];
+            const buttons = optionsContainer.querySelectorAll('button');
+
+            buttons.forEach((button, index) => {
+                button.disabled = true;
+                if (index === currentQuestion.answer) {
+                    button.style.backgroundColor = '#28a745'; // Correct answer
+                } else {
+                    button.style.backgroundColor = '#dc3545'; // Wrong answer
+                }
+            });
+
+            if (selectedIndex === currentQuestion.answer) {
+                score++;
+            }
+
+            nextButton.disabled = false;
+        }
+
+        function showResult() {
+            resultElement.textContent = `You scored ${score} out of ${questions.length}`;
+            nextButton.textContent = 'Restart';
+        }
+
+        nextButton.addEventListener('click', () => {
+            if (currentQuestionIndex < questions.length - 1) {
+                currentQuestionIndex++;
+                loadQuestion();
+            } else {
+                showResult();
+            }
+
+            if (nextButton.textContent === 'Restart') {
+                currentQuestionIndex = 0;
+                score = 0;
+                nextButton.textContent = 'Next';
+                resultElement.textContent = '';
+                loadQuestion();
+            }
+        });
+
+        loadQuestion();
+    </script>
+</body>
+
+</html>
