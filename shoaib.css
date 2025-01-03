@@ -1,0 +1,49 @@
+.shoaibContainer {
+    column-count: 4;
+    column-gap: 20px;
+    margin: 20px;
+}
+
+.shoaibContainer > img {
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px black; /* Adds a soft shadow */
+    transition: all 0.3s;
+}
+
+.shoaibContainer > img:hover {
+    transform: scale(1.01);
+}
+
+/* For tablets and smaller desktops (width <= 1024px) */
+@media (max-width: 1024px) {
+    .shoaibContainer {
+        column-count: 3;
+        column-gap: 15px;
+    }
+}
+
+/* For mobile devices (width <= 768px) */
+@media (max-width: 768px) {
+    .shoaibContainer {
+        column-count: 2;
+        column-gap: 10px;
+        margin: 10px;
+    }
+}
+
+/* For extra small devices (width <= 480px) */
+@media (max-width: 480px) {
+    .shoaibContainer {
+        column-count: 2;
+        margin: 5px;
+    }
+
+    .shoaibContainer > img {
+        margin-bottom: 10px;
+        border-radius: 8px;
+        box-shadow: 0px 2px 4px black; /* Slightly lighter shadow */
+    }
+}
+
