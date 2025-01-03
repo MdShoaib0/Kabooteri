@@ -7,7 +7,7 @@
 body {
     width: 100vw;
     height: auto;
-    /* margin-top: 15vh; */
+    margin-top: 15vh;
     background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
 }
 
@@ -17,10 +17,10 @@ header {
     height: 15vh;
     background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
     transition: all 0.3s;
-    /* position: fixed;
+    position: fixed;
     top: 0px;
     right: 0px;
-    z-index: 1; */
+    z-index: 1;
 }
 
 header>.title {
@@ -127,7 +127,7 @@ header>.loginpage {
     
     header>.title>h1 {
         font-size: 1.9rem;
-        padding: 1.5rem 3rem;
+        padding: 1.5rem 0px;
         cursor: pointer;
         text-shadow: 3px 3px 5px rgb(0, 0, 0);
     }
