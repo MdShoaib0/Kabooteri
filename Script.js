@@ -21,7 +21,7 @@ const interval = setInterval(() => {
 
     // Display the elapsed time
     document.getElementById("Months").innerHTML =
-        months + " Months " 
+        months + " Months "
     document.getElementById("Days").innerHTML =
         days + " Days "
     document.getElementById("Hours").innerHTML =
@@ -30,10 +30,12 @@ const interval = setInterval(() => {
         seconds.toString().padStart(2, "0");
 }, 1000);
 
-document.getElementById("ruhiimage").addEventListener("click", function() {
+const ruhi = document.getElementById("ruhiimage");
+ruhi.addEventListener("click", function () {
     window.open("ruhi.html");
 });
 
-
-
-
+const yusufimage = document.getElementById("yusufimage");
+yusufimage.addEventListener("click", function () {
+    window.open("shoaib.html");
+});
