@@ -7,7 +7,7 @@
 body {
     width: 100vw;
     height: auto;
-    /* margin-top: 15vh; */
+    margin-top: 15vh;
     background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
 }
 
@@ -17,15 +17,14 @@ header {
     height: 15vh;
     background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
     transition: all 0.3s;
-    /* position: fixed;
+    position: fixed;
     top: 0px;
     right: 0px;
-    z-index: 1; */
+    z-index: 1;
 }
 
 header>.title {
     width: 30vw;
-    height: 15vh;
     color: rgb(255, 132, 0);
     display: flex;
     justify-content: center;
@@ -36,6 +35,7 @@ header>.title {
 }
 
 header>.title>h1 {
+    font-size: 2rem;
     cursor: pointer;
     text-shadow: 3px 3px 5px rgb(0, 0, 0);
 }
