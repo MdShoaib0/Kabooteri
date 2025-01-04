@@ -16,45 +16,43 @@ body {
     width: 100%;
     margin-bottom: 15px;
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 8px rgb(0, 0, 0);
     transition: transform 0.3s, box-shadow 0.3s;
     cursor: pointer;
 }
 
 .images img:hover {
     transform: scale(1.02);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 8px 16px rgb(0, 0, 0);
 }
 
 .fullscreen {
-    position: fixed; /* Ensures it stays in place during scroll */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%; /* Covers the entire screen */
-    background: rgba(0, 0, 0, 0.8); /* Dim background for better focus */
-    display: flex; /* Centers the image */
+    height: auto;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    overflow: hidden; /* Prevents scrolling while in fullscreen */
+    overflow: auto;
 }
 
 .fullscreen img {
-    max-width: 95%; /* Slightly smaller for padding on smaller devices */
-    max-height: 95%; /* Prevent overflowing on short screens */
-    border-radius: 0; /* Remove rounded edges in fullscreen mode */
+    max-width: 95%;
+    max-height: 95%;
+    border-radius: 0;
     box-shadow: none;
 }
 
-/* Tablet Responsiveness */
 @media screen and (max-width: 1024px) {
     .images {
         column-count: 3;
     }
 }
 
-/* Mobile Responsiveness */
 @media screen and (max-width: 768px) {
     .images {
         column-count: 2;
@@ -62,24 +60,23 @@ body {
     }
 
     .images img {
-        margin-bottom: 10px; /* Adjust spacing */
-        border-radius: 8px; /* Reduce radius for smaller devices */
+        margin-bottom: 10px;
+        border-radius: 8px;
     }
 }
 
-/* Small Mobile Phones */
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 480px) {
     .images {
-        column-count: 1;
+        column-count: 2;
         column-gap: 10px;
     }
 
     .images img {
-        border-radius: 6px; /* Further reduce radius */
+        border-radius: 6px;
     }
 
     .fullscreen img {
-        max-width: 100%; /* Use full width on very small devices */
+        max-width: 100%;
         max-height: 100%; 
     }
 }
